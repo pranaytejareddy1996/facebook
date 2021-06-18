@@ -56,7 +56,7 @@ const [session] = useSession();
             <div className='flex items-center sm:space-x-2 justify-end' >
                 <div className='flex items-center hover:bg-gray-200  rounded-full space-x-2 p-1 '>
                     <Image className='rounded-full cursor-pointer ' 
-                    src={session.user.image}
+                    src={'/images/profilepic2.jpg'}
                     width={33} height={33} alt='' layout='fixed' />
                     <p className='hidden lg:inline-flex font-medium whitespace-nowrap  pr-3 cursor-pointer'>Pranay</p>
                </div>
