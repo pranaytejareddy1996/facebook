@@ -3,27 +3,30 @@ import { EmojiHappyIcon } from '@heroicons/react/outline'
 import {CameraIcon , VideoCameraIcon} from '@heroicons/react/solid'
 import { useRef, useState } from "react";
 import { db } from "../firebase";
+import {firebase} from 'firebase';
 
 function InputBox() {
     const [session] = useSession();
-    const InputRef = useRef(null);
+    const inputRef = useRef(null);
     const filepickerRef = useRef(null);
     const [imageToPost , setImageToPost] = useState(null);
     
     const sendPost = (e) => {
         e.preventDefault();
         
-        if(!InputRef.current.value) return;
+        if(!inputRef.current.value) return;
 
         db.collection('posts').add({
-            message : InputRef.current.value,
+            message : inputRef.current.value,
             name: session.user.name,
             email: session.user.email,
-            timestamp: firebase.firestore.FeildValue.serverTimestamp()
+            image: session.user.image
         }) 
+
+        inputRef.current.value = "";
     }
 
-        // InputRef.current.value = "";
+        
     const addImageToPost = (e) => {
         const reader = new FileReader();
         if (e.target.files[0]) {
@@ -46,7 +49,7 @@ function InputBox() {
                 <input 
                 className='rounded-full h-12 bg-gray-100 flex-grow px-5 focus:outline-none'
                 type='text' 
-                ref = {InputRef}
+                ref = {inputRef}
                 placeholder={`what's on your mind", "Mr.Pranay ?"`} />
                 <button hidden type='submit' onClick={sendPost}>Submit</button>
             </form>
