@@ -1,16 +1,13 @@
 import { SearchIcon } from "@heroicons/react/outline"
 import { DotsHorizontalIcon , VideoCameraIcon } from "@heroicons/react/solid"
 import Contact from "./Contact"
-import { useSession } from "next-auth/client"
 
-function Widgets() {
-    const [session] = useSession();
 
-    const contacts = [
+const contacts = [
     {
         name: 'Pranay Teja Reddy',
-        src: `${session.user.image}`,
-        profile:`${session.user.image}`,
+        src: '/images/profilepic2.jpg',
+        profile:'https://links.papareact.com/kxk',
     },
     {
         name: 'Elon Musk',
@@ -35,6 +32,8 @@ function Widgets() {
 
 ]
 
+
+function Widgets() {
     return (
         <div className='hidden lg:flex flex-col w-80 p-2 mt-5'>
             <div className='flex justify-between items-center text-gray-500 mb-5 mr-2'>

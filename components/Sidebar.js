@@ -22,7 +22,7 @@ const [session, loading] = useSession() ;
         <div className='p-2 mt-5 w-80'>
             <div className='flex flex-row hover:bg-gray-200 rounded-xl items-center p-1 ' >
                 <Image className='rounded-full' 
-                    src={session.user.image}
+                    src={'/images/profilepic2.jpg'}
                     width={50} height={50} alt='' layout='fixed' />
                 <SidebarRow title='Pranay Teja Reddy'/>
             </div>
