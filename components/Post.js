@@ -1,14 +1,16 @@
+import Image from 'next/image'
 import { EmojiHappyIcon } from '@heroicons/react/outline'
 
 import { ChatAltIcon , ShareIcon , ThumbUpIcon } from '@heroicons/react/outline'
-
-function Post() {
+import { useSession } from 'next-auth/client'
+function Post({src}) {
+    const [session] = useSession();
     return (
         <div className='flex flex-col'>
             <div className='p-5 bg-white mt-5 rounded-t-2xl shadow-sm'>
                 <div className='flex items-center space-x-2'>
-                    <img className='rounded-full' 
-                    src={'./images/profilepic2.jpg'}
+                    <Image className='rounded-full' 
+                    src={session.user.image}
                     width={40} height={40} alt='' />
                 
                 <div>
@@ -21,8 +23,8 @@ function Post() {
             </div>
             
             <div className='relative h-56 md:h-96 bg-white'>
-                <img
-                src={'./images/lion.jpg'}
+                <Image
+                src={src}
                 objectFit='cover' layout='fill' />
             </div>
             

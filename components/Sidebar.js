@@ -1,4 +1,5 @@
 import { useSession } from 'next-auth/client'
+import Image from 'next/image'
 import React from 'react'
 import {
     ChevronDownIcon,
@@ -18,10 +19,10 @@ function Sidebar() {
 const [session, loading] = useSession() ;
 
     return (
-        <div className='p-2 mt-5 max-w-[600px] xl:min-w-[300px]'>
-            <div className='flex flex-row'>
-                <img className='rounded-full w-14 h-14' 
-                    src={'./images/profilepic2.jpg'}
+        <div className='p-2 mt-5 w-80'>
+            <div className='flex flex-row hover:bg-gray-200 rounded-xl items-center p-1 ' >
+                <Image className='rounded-full' 
+                    src={session.user.image}
                     width={50} height={50} alt='' layout='fixed' />
                 <SidebarRow title='Pranay Teja Reddy'/>
             </div>

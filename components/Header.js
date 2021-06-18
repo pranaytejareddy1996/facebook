@@ -32,7 +32,7 @@ const [session] = useSession();
                 height='40'
                 layout='fixed'
                 />
-                <div className='hidden md:inline-flex ml-2 items-center rounded-full bg-gray-100 p-2'>
+                <div className='hidden md:inline-flex ml-2 items-center rounded-full bg-gray-200 p-2'>
                     <SearchIcon className='h-6 text-gray-600' />
                     <input 
                     className = 'hidden lg:inline-flex ml-2 items-center bg-transparent outline-none placeholder-gray-500 flex-shrink' 
@@ -42,7 +42,7 @@ const [session] = useSession();
             </div>
 
             {/*center*/}
-            <div className='flex justify-center flex-grow'>
+            <div className='flex justify-center flex-grow ml-10'>
                 <div className='flex space-x-6 md:space-x-2'>
                     <HeaderIcon active Icon={HomeIcon}/>
                     <HeaderIcon Icon={FlagIcon}/>
@@ -54,15 +54,21 @@ const [session] = useSession();
 
             {/*right */}
             <div className='flex items-center sm:space-x-2 justify-end' >
-            <img className='rounded-full' 
-                    src={'./images/profilepic2.jpg'}
-                    width={40} height={40} alt='' layout='fixed' />
-               <p className='hidden lg:inline-flex text-sm whitespace-nowrap font-semibold pr-3'>Pranay</p>
+                <div className='flex items-center hover:bg-gray-200  rounded-full space-x-2 p-1 '>
+                    <Image className='rounded-full cursor-pointer ' 
+                    src={session.user.image}
+                    width={33} height={33} alt='' layout='fixed' />
+                    <p className='hidden lg:inline-flex font-medium whitespace-nowrap  pr-3 cursor-pointer'>Pranay</p>
+               </div>
                <ViewGridIcon className='icon' />
                <ChatIcon className='icon' />
                <BellIcon className='icon' />
                <ChevronDownIcon className='icon' />
-               <button onClick={signOut}>signout</button>
+               <div className=' rounded-full p-2
+                cursor-pointer hover:bg-red-500 items-center'>
+               <button onClick={signOut} ><p className='font-medium'>Log Out</p></button>
+               </div>
+               
             </div>
 
         </div>
